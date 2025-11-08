@@ -1,0 +1,318 @@
+/* --- 1. DESIGN SYSTEM VARIABLES (from your index.css) --- */
+:root {
+  /* Colors */
+  --background: 210 40% 98%;
+  --foreground: 215 25% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 25% 15%;
+  --primary: 200 95% 35%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 30% 92%;
+  --secondary-foreground: 215 25% 15%;
+  --muted: 210 30% 92%;
+  --muted-foreground: 215 16% 47%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 100%;
+  --border: 214 32% 88%;
+  --input: 0 0% 100%;
+  --ring: 200 95% 35%;
+
+  /* Gradients & Shadows */
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(200 95% 35% / 0.1) 0%,
+    hsl(195 85% 45% / 0.05) 100%
+  );
+  --shadow-card: 0 4px 6px -1px hsl(200 95% 35% / 0.1),
+    0 2px 4px -2px hsl(200 95% 35% / 0.1);
+  --shadow-button: 0 10px 15px -3px hsl(200 95% 35% / 0.2),
+    0 4px 6px -4px hsl(200 95% 35% / 0.1);
+
+  /* Font */
+  --font-family: "Inter", sans-serif;
+}
+
+/* --- 2. BASE & LAYOUT STYLES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid hsl(var(--border));
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-gradient {
+  position: absolute;
+  inset: 0;
+  background-image: var(--gradient-hero);
+  pointer-events: none;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 42rem; /* 672px */
+  position: relative;
+  z-index: 10;
+}
+
+/* --- 3. HEADER STYLES --- */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem; /* 80px */
+  height: 5rem; /* 80px */
+  border-radius: 1rem;
+  background-color: hsl(var(--primary));
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-button);
+}
+
+.header-icon {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  color: hsl(var(--primary-foreground));
+}
+
+.header-title {
+  font-size: 3rem; /* 48px */
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  /* Gradient text effect */
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    hsl(var(--primary) / 0.8)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-subtitle {
+  font-size: 1.125rem; /* 18px */
+  color: hsl(var(--muted-foreground));
+}
+
+/* --- 4. CARD STYLES --- */
+.card {
+  background-color: hsl(var(--card));
+  border-radius: 1.5rem; /* 24px */
+  box-shadow: var(--shadow-card);
+  border: 1px solid hsl(var(--border));
+  padding: 2rem; /* 32px */
+}
+
+.input-group {
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+.card-label {
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.5rem;
+}
+
+.card-textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: none;
+  font-size: 1rem; /* 16px */
+  font-family: var(--font-family);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--input));
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-textarea:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.5);
+}
+
+/* --- 5. BUTTON STYLES --- */
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  flex-grow: 1;
+  height: 3rem; /* 48px */
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: var(--shadow-button);
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 6px -1px hsl(200 95% 35% / 0.1);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  flex-grow: 0; /* Don't let reset button grow */
+  padding: 0 1.5rem;
+  background-color: transparent;
+  color: hsl(var(--secondary-foreground));
+  border: 1px solid hsl(var(--border));
+}
+.btn-outline:hover {
+  background-color: hsl(var(--secondary));
+}
+
+/* Loader animation */
+.loader {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid hsl(var(--primary-foreground));
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- 6. RESULT BOX STYLES --- */
+#result-container {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-width: 2px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  /* Animation */
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.result-icon-wrapper {
+  flex-shrink: 0;
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result-icon-wrapper svg {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+}
+
+.result-text-content {
+  padding-top: 0.25rem;
+}
+.result-text-content h3 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.result-text-content p {
+  color: hsl(var(--foreground));
+}
+
+/* Result: SPAM */
+#result-container.is-spam {
+  background-color: hsl(var(--destructive) / 0.1);
+  border-color: hsl(var(--destructive));
+}
+#result-container.is-spam .result-icon-wrapper {
+  background-color: hsl(var(--destructive));
+}
+#result-container.is-spam #result-icon-spam {
+  display: block;
+  color: hsl(var(--destructive-foreground));
+}
+#result-container.is-spam #result-icon-safe {
+  display: none;
+}
+#result-container.is-spam h3 {
+  color: hsl(var(--destructive));
+}
+
+/* Result: SAFE (HAM) */
+#result-container.is-safe {
+  background-color: hsl(var(--success) / 0.1);
+  border-color: hsl(var(--success));
+}
+#result-container.is-safe .result-icon-wrapper {
+  background-color: hsl(var(--success));
+}
+#result-container.is-safe #result-icon-safe {
+  display: block;
+  color: hsl(var(--success-foreground));
+}
+#result-container.is-safe #result-icon-spam {
+  display: none;
+}
+#result-container.is-safe h3 {
+  color: hsl(var(--success));
+}
+
+/* --- 7. FOOTER --- */
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.875rem; /* 14px */
+  color: hsl(var(--muted-foreground));
+}

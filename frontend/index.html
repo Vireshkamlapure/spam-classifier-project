@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpamGuard - SMS Spam Detector</title>
+    <meta
+      name="description"
+      content="Detect spam SMS messages instantly. Stay protected from suspicious texts."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="background-gradient"></div>
+
+      <main class="main-content">
+        <div class="header">
+          <div class="header-icon-wrapper">
+            <svg
+              class="header-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"
+              />
+            </svg>
+          </div>
+          <h1 class="header-title">SpamGuard</h1>
+          <p class="header-subtitle">
+            Enter an SMS message to check if it's spam
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="input-group">
+            <label for="message-input" class="card-label"
+              >Message Content</label
+            >
+            <textarea
+              id="message-input"
+              placeholder="Type or paste your message here..."
+              class="card-textarea"
+            ></textarea>
+          </div>
+
+          <div class="button-group">
+            <button id="check-button" class="btn btn-primary">
+              <span id="button-text">Check Message</span>
+              <div id="button-loader" class="loader" style="display: none"></div>
+            </button>
+            <button
+              id="reset-button"
+              class="btn btn-outline"
+              style="display: none"
+            >
+              Reset
+            </button>
+          </div>
+
+          <div id="result-container" style="display: none">
+            <div class="result-icon-wrapper">
+              <svg
+                id="result-icon-safe"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <svg
+                id="result-icon-spam"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+                />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </div>
+            <div class="result-text-content">
+              <h3 id="result-title"></h3>
+              <p id="result-message"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p>Protected by SpamGuard • Stay safe from spam messages</p>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+# Python Virtual Environments
+.venv/
+venv/
+env/
+*.venv
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VS Code editor files
+.vscode/
+
+# Our ML model
+# (We add this *if* it's too large for Git/GitLab.
+# For this project, model.pkl is small, so we DO want to commit it.)
+# *.pkl
