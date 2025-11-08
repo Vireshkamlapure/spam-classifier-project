@@ -49,6 +49,7 @@ Frontend	HTML5, CSS3, Vanilla JavaScript
 Deployment	Git, GitHub, Render
 
 ### 📂 Project Structure
+```bash
 /spam-classifier-project
   ├── /backend
   │   ├── app.py          # The FastAPI server logic
@@ -63,7 +64,7 @@ Deployment	Git, GitHub, Render
   │   ├── spam_not_got  
   ├── .gitignore
   └── README.md
-
+```
 ### 🛠️ How to Run Locally
 You can run this project on your local machine by following these steps.
 
