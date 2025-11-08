@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 1. SET YOUR API URL HERE ---
   // This is the URL you get from Render after deploying your backend.
   // We'll use the local one for testing first.
-  const API_URL = "http://127.0.0.1:8000/predict";
-  // const API_URL = "https://your-spam-api.onrender.com/predict"; // <-- Change to this later
+  //const API_URL = "http://127.0.0.1:8000/predict";
+  const API_URL = "https://spam-classifier-project-vker.onrender.com/predict"; // <-- Change to this later
 
   // --- 2. GET ALL THE ELEMENTS ---
   const messageInput = document.getElementById("message-input");
